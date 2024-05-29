@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """app"""
+
+from urllib.parse import quote as url_quote
 from flask import Flask, make_response, jsonify
 from models import storage
 from api.v1.views import app_views
