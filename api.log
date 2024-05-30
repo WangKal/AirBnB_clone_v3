@@ -1,108 +1,11 @@
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/engine/base.py", line 3256, in _wrap_pool_connect
-    return fn()
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 310, in connect
-    return _ConnectionFairy._checkout(self)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 868, in _checkout
-    fairy = _ConnectionRecord.checkout(pool)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 476, in checkout
-    rec = pool._do_get()
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
-    self._dec_overflow()
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
-    compat.raise_(
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/util/compat.py", line 207, in raise_
-    raise exception
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
-    return self._create_connection()
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
-    return _ConnectionRecord(self)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 371, in __init__
-    self.__connect()
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 666, in __connect
-    pool.logger.debug("Error on connect(): %s", e)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
-    compat.raise_(
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/util/compat.py", line 207, in raise_
-    raise exception
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 661, in __connect
-    self.dbapi_connection = connection = pool._invoke_creator(self)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/engine/create.py", line 590, in connect
-    return dialect.connect(*cargs, **cparams)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/engine/default.py", line 597, in connect
-    return self.dbapi.connect(*cargs, **cparams)
-  File "/usr/local/lib/python3.8/dist-packages/MySQLdb/__init__.py", line 123, in Connect
-    return Connection(*args, **kwargs)
-  File "/usr/local/lib/python3.8/dist-packages/MySQLdb/connections.py", line 185, in __init__
-    super().__init__(*args, **kwargs2)
-MySQLdb._exceptions.OperationalError: (2002, "Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
-    exec(code, run_globals)
-  File "/root/AirBnB_clone_v3/api/v1/app.py", line 8, in <module>
-    from models import storage
-  File "/root/AirBnB_clone_v3/models/__init__.py", line 26, in <module>
-    storage.reload()
-  File "/root/AirBnB_clone_v3/models/engine/db_storage.py", line 69, in reload
-    Base.metadata.create_all(self.__engine)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/sql/schema.py", line 4864, in create_all
-    bind._run_ddl_visitor(
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/engine/base.py", line 3122, in _run_ddl_visitor
-    with self.begin() as conn:
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/engine/base.py", line 3038, in begin
-    conn = self.connect(close_with_result=close_with_result)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/engine/base.py", line 3210, in connect
-    return self._connection_cls(self, close_with_result=close_with_result)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/engine/base.py", line 96, in __init__
-    else engine.raw_connection()
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/engine/base.py", line 3289, in raw_connection
-    return self._wrap_pool_connect(self.pool.connect, _connection)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/engine/base.py", line 3259, in _wrap_pool_connect
-    Connection._handle_dbapi_exception_noconnection(
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/engine/base.py", line 2106, in _handle_dbapi_exception_noconnection
-    util.raise_(
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/util/compat.py", line 207, in raise_
-    raise exception
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/engine/base.py", line 3256, in _wrap_pool_connect
-    return fn()
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 310, in connect
-    return _ConnectionFairy._checkout(self)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 868, in _checkout
-    fairy = _ConnectionRecord.checkout(pool)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 476, in checkout
-    rec = pool._do_get()
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
-    self._dec_overflow()
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
-    compat.raise_(
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/util/compat.py", line 207, in raise_
-    raise exception
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
-    return self._create_connection()
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
-    return _ConnectionRecord(self)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 371, in __init__
-    self.__connect()
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 666, in __connect
-    pool.logger.debug("Error on connect(): %s", e)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
-    compat.raise_(
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/util/compat.py", line 207, in raise_
-    raise exception
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/pool/base.py", line 661, in __connect
-    self.dbapi_connection = connection = pool._invoke_creator(self)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/engine/create.py", line 590, in connect
-    return dialect.connect(*cargs, **cparams)
-  File "/usr/local/lib/python3.8/dist-packages/sqlalchemy/engine/default.py", line 597, in connect
-    return self.dbapi.connect(*cargs, **cparams)
-  File "/usr/local/lib/python3.8/dist-packages/MySQLdb/__init__.py", line 123, in Connect
-    return Connection(*args, **kwargs)
-  File "/usr/local/lib/python3.8/dist-packages/MySQLdb/connections.py", line 185, in __init__
-    super().__init__(*args, **kwargs2)
-sqlalchemy.exc.OperationalError: (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)")
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://10.247.224.254:5050
+Press CTRL+C to quit
+127.0.0.1 - - [30/May/2024 20:04:22] "GET /api/v1/status HTTP/1.1" 200 -
+127.0.0.1 - - [30/May/2024 20:08:50] "GET /api/v1/states HTTP/1.1" 200 -
+127.0.0.1 - - [30/May/2024 20:09:25] "GET /api/v1/states HTTP/1.1" 200 -
+127.0.0.1 - - [30/May/2024 20:10:07] "GET /api/v1/states HTTP/1.1" 200 -
