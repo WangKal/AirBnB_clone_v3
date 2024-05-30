@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """app"""
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
-from urllib.parse import quote as url_quote
 from flask import Flask, make_response, jsonify
 from models import storage
 from api.v1.views import app_views
@@ -26,7 +28,7 @@ def tear(self):
 @app.errorhandler(404)
 def not_found(error):
     ''' handles 404 error and gives json formatted response '''
-    return make_response(jsonify({'error':'Not found'}), 404)
+    return make_response(jsonify({'error': 'Not found'}), 404)
 
 if __name__ == '__main__':
     if getenv("HBNB_API_HOST") is None:
